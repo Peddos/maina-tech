@@ -1,0 +1,13 @@
+[33mcommit ca6a03604be7b21e7ea9525d843d92bca5931ecd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: peddos <njogujohn589@gmail.com>
+Date:   Wed Apr 9 12:10:06 2025 +0300
+
+    Initial commit: Teacher's website with project pages
+
+ ...03-25_at_20.35.11_a9bea190-removebg-preview.png | Bin [31m0[m -> [32m88188[m bytes
+ business-project.html                              | 163 [32m+++++[m
+ geography-project.html                             | 168 [32m+++++[m
+ index.html                                         | 681 [32m+++++++++++++++++++++[m
+ math-project.html                                  | 163 [32m+++++[m
+ science-project.html                               | 163 [32m+++++[m
+ 6 files changed, 1338 insertions(+)
