@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Packages | MainaTech</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KK4TVR6R6Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KK4TVR6R6Z');
+    </script>
+    <!-- End Google Analytics -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6f61;
+            --secondary-color: #ff4c3b;
+            --accent-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .navbar {
+            background: #2c3e50;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #212529;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .package-card {
+            transition: all 0.3s ease;
+            height: 100%;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .package-card .card-body {
+            padding: 1.5rem;
+        }
+
+        .locked {
+            position: relative;
+            opacity: 0.95;
+        }
+
+        .locked::after {
+            content: '🔒';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .badge-price {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.1em;
+            background: var(--primary-color);
+            padding: 0.5em 1em;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-pills .nav-link {
+            color: var(--primary-color);
+            border-radius: 20px;
+            padding: 0.5rem 2rem;
+            margin: 0 0.5rem;
+            font-weight: 500;
+        }
+
+        .nav-pills .nav-link.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .modal-content {
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 0.8rem;
+            border: 1px solid #dee2e6;
+        }
+
+        .package-features {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .package-features li:before {
+            content: '✓';
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background: #128C7E;
+            color: white;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">MainaTech</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="packages.html">Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="hero-section">
+    <div class="container">
+        <h1 class="display-4 mb-3">Teaching Packages</h1>
+        <p class="lead">High-quality teaching materials for modern educators</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <!-- System Tabs -->
+    <ul class="nav nav-pills mb-5 justify-content-center" id="systemTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#form12" type="button">Form 1 & 2</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#cbc" type="button">CBC</button>
+        </li>
+    </ul>
+    
+    <!-- Package Grid -->
+    <div class="tab-content" id="systemContent">
+        <!-- Form 1 & 2 Packages -->
+        <div class="tab-pane fade show active" id="form12">
+            <div class="row g-4" id="form12Packages">
+                <!-- Packages will be loaded here -->
+            </div>
+        </div>
+        
+        <!-- CBC Packages -->
+        <div class="tab-pane fade" id="cbc">
+            <div class="row g-4" id="cbcPackages">
+                <!-- Packages will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Purchase Modal -->
+<div class="modal fade" id="purchaseModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Package Access</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-info">
+                    <strong>Package Contents:</strong>
+                    <ul class="mb-0">
+                        <li>Complete Lesson Plans</li>
+                        <li>Schemes of Work</li>
+                        <li>Teaching Aids</li>
+                        <li>Assessment Tools</li>
+                    </ul>
+                </div>
+                <p>To get access to this package, please contact us via WhatsApp:</p>
+                <div class="text-center mt-3">
+                    <a href="https://wa.me/254794115740" class="btn btn-success btn-lg" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/254794115740" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="firebase-config.js"></script>
+<script>
+// Function to create package card
+function createPackageCard(system, subject, details) {
+    const card = document.createElement('div');
+    card.className = 'col-md-4 col-lg-3';
+    
+    let folderContent = '';
+    if (details.folders) {
+        // Handle packages with multiple folders
+        folderContent = Object.entries(details.folders).map(([key, folder]) => `
+            <a href="javascript:void(0)" 
+               onclick="openDriveContent('${folder.folderId}')"
+               class="btn btn-outline-primary btn-sm mb-2 w-100">
+                <i class="fas fa-folder"></i> ${folder.name}
+            </a>
+        `).join('');
+    } else if (details.folderId) {
+        // Handle packages with a single folder
+        folderContent = `
+            <a href="javascript:void(0)"
+               onclick="openDriveContent('${details.folderId}')"
+               class="btn btn-outline-primary btn-sm mb-2 w-100">
+                <i class="fas fa-folder"></i> Access Materials
+            </a>
+        `;
+    }
+
+    card.innerHTML = `
+        <div class="card package-card">
+            <div class="card-body">
+                <h5 class="card-title">${details.name}</h5>
+                <div class="folder-list">
+                    ${folderContent}
+                </div>
+                <div class="mt-3">
+                    <small class="text-muted d-block mb-1">Click to view materials</small>
+                </div>
+            </div>
+        </div>
+    `;
+    return card;
+}
+
+// Function to open Drive content
+function openDriveContent(folderId) {
+    // Basic Google Drive sharing URL format
+    const shareUrl = `https://drive.google.com/drive/folders/${folderId}`;
+    
+    // Debug logging
+    console.log('Opening folder:', {
+        folderId: folderId,
+        url: shareUrl,
+        timestamp: new Date().toISOString()
+    });
+    
+    try {
+        // Check if it's a placeholder ID
+        if (folderId.includes('NEEDS_NEW_FOLDER_ID')) {
+            console.error('Placeholder folder ID detected:', folderId);
+            alert('This content is not yet available. Please try another package.');
+            return;
+        }
+        
+        // Open in new tab with specific features to avoid pop-up blocking
+        const newWindow = window.open(shareUrl, '_blank', 'noopener,noreferrer');
+        
+        if (newWindow === null) {
+            console.error('Pop-up was blocked');
+            alert('Pop-up was blocked. Please allow pop-ups for this site to access the content.');
+            // Fallback: try direct navigation
+            window.location.href = shareUrl;
+        }
+    } catch (error) {
+        console.error('Error opening Drive content:', error);
+        alert('There was an error opening the content. Please try again or contact support.');
+        // Fallback to direct navigation
+        window.location.href = shareUrl;
+    }
+}
+
+// Function to load packages
+function loadPackages() {
+    console.log('Loading packages...');
+    
+    const form12Container = document.getElementById('form12Packages');
+    const cbcContainer = document.getElementById('cbcPackages');
+    
+    // Clear containers
+    form12Container.innerHTML = '';
+    cbcContainer.innerHTML = '';
+    
+    try {
+        // Verify packageConfig is available
+        if (typeof packageConfig === 'undefined') {
+            throw new Error('packageConfig is not defined');
+        }
+        
+        console.log('Package config loaded:', {
+            form12Subjects: Object.keys(packageConfig.form12),
+            cbcSubjects: Object.keys(packageConfig.cbc)
+        });
+        
+        // Load Form 1 & 2 packages
+        Object.entries(packageConfig.form12).forEach(([subject, details]) => {
+            form12Container.appendChild(createPackageCard('form12', subject, details));
+        });
+        
+        // Load CBC packages
+        Object.entries(packageConfig.cbc).forEach(([subject, details]) => {
+            cbcContainer.appendChild(createPackageCard('cbc', subject, details));
+        });
+        
+        console.log('Packages loaded successfully');
+    } catch (error) {
+        console.error('Error loading packages:', error);
+        // Show error message to user
+        form12Container.innerHTML = '<div class="alert alert-danger">Error loading packages. Please refresh the page or contact support.</div>';
+        cbcContainer.innerHTML = '<div class="alert alert-danger">Error loading packages. Please refresh the page or contact support.</div>';
+    }
+}
+
+// Function to initiate payment
+function initiatePayment(system, subject) {
+    const details = getPackageDetails(system, subject);
+    const modal = new bootstrap.Modal(document.getElementById('purchaseModal'));
+    modal.show();
+}
+
+// Load packages when page loads
+document.addEventListener('DOMContentLoaded', loadPackages);
+</script>
+
+</body>
+</html> 
