@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching Packages | MainaTech</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="WhatsApp_Image_2025-03-25_at_20.35.11_a9bea190-removebg-preview.png" alt="TeachPro Logo">
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <nav id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="packages.html">Bundles</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav-links");
+      nav.classList.toggle('show');
+    }
+  </script>
+
+<div class="hero">
+  <img src="student-8036792_1280.png" alt="Teacher engaging with students">
+  <div class="overlay">
+    <h1 class="display-4 mb-3">Teaching Packages</h1>
+    <p class="lead">Access full teaching folders after payment</p>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">(8-4-4) Packages</h2>
+  <div id="form12Packages" class="row"></div>
+
+  <h2 class="text-center mb-4 mt-5">CBC Senior School Packages</h2>
+  <div id="cbcPackages" class="row"></div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="purchaseModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-4">
+      <div class="modal-header">
+        <h5 class="modal-title">Access Package</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Pay <strong>KES 699</strong> to unlock all folders in this package.</p>
+        <input type="email" id="customerEmail" class="form-control mb-3" placeholder="Enter your email" required>
+        <button id="payButton" class="btn btn-primary w-100">Pay with Paystack</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+const packageData = {
+  "form12": {
+    "Mathematics": {
+      "Lesson Plans": "https://drive.google.com/drive/folders/1SoVr8VXGBlIWs4Yrvk4vWud2EgpD63bw",
+      "Teaching Aids": "https://drive.google.com/drive/folders/1V4tM0UOGgpok6wdNFPlt481W3zwzreZs",
+      "Assessment Tools": "https://drive.google.com/drive/folders/1STHM6vzQSanmr9Iv2G_KcHH5-G9pX16b"
+    },
+    "English": {
+      "Lesson Plans": "https://drive.google.com/drive/folders/11P4GsHfcb9kKe-VHMjLEGbcPPN9DFK25",
+      "Teaching Aids": "https://drive.google.com/drive/folders/1RSBLiUTH-lr1eo_dYNb--FqqIfulOU9y",
+      "Assessment Tools": "https://drive.google.com/drive/folders/1ni70tnD_dXY8VmBw7Q_sao0S9LwIRx6T"
+    },
+    
+    "Biology": {
+      "Lesson Plans": "https://drive.google.com/drive/folders/1FqloEv_WYAG-Hzev5cXP5dcoaVhVmkv_",
+      "Teaching Aids": "https://drive.google.com/drive/folders/1a-0257gAzztGi_GR8QDbk-1bj2pzb5an",
+      "Assessment Tools": "https://drive.google.com/drive/folders/1_mnCzAhzPCtw9vU5fccad5_TXx7lwF7T"
+    },
+    "Chemistry": {
+      "Lesson Plans": "https://drive.google.com/drive/folders/1EWnTI7vQt3KMFv9PFng2i7BXcpMx75qn",
+      "Teaching Aids": "https://drive.google.com/drive/folders/1lOxLjXv8lKhHTi0UMldnKkc8YfQdGYRL",
+      "Assessment Tools": "https://drive.google.com/drive/folders/1kNnIHjWD_Dc-Dqb9zeAaEFdO94LGluhm"
+    },
+    "Physics": {
+      "Lesson Plans": "https://drive.google.com/drive/folders/1FcIkFM16nPrDy4grwDDhAcHvqJ058sfa",
+      "Teaching Aids": "https://drive.google.com/drive/folders/155Gt42-0tg8BkLirwVKPEuGzAHfQbSqh",
+      "Assessment Tools": "https://drive.google.com/drive/folders/1wfYq4G3iNf7lW3mdHu-HR5yVs4-CMtuX"
+    },
+    "Geography": {
+      "Lesson Plans": "https://drive.google.com/drive/folders/1Jg3gnmlxNxyehUCDVPZ5c44IURto2RXt",
+      "Teaching Aids": "https://drive.google.com/drive/folders/1j8Qk36MceLN4qnnogdhsXW5h5Vj3A-NG",
+      "Assessment Tools": "https://drive.google.com/drive/folders/1cYhDnVvglOqJYkgOYCEcVAP1svJtKnwH"
+    },
+    "History & Government": {
+      "Lesson Plans": "https://drive.google.com/drive/folders/1zDoXtpFrPZpH_xZPhm9LWkZ8VcXXkpCP",
+      "Teaching Aids": "https://drive.google.com/drive/folders/1LYVCq5RbX8IQUTH5xsqPC5a-zSGn5ES5",
+      "Assessment Tools": "https://drive.google.com/drive/folders/1s0rt5Y95i-BQokrvi3hZkZawgusSYur9"
+    },
+  },
+  "cbc": {
+    "Integrated Science": {
+      "Lesson Plans": "https://drive.google.com/drive/folders/1xYKzd104l7jzlU5YVel3Rc4A4AgEBm_x",
+      "Teaching Aids": "https://drive.google.com/drive/folders/1t15HFtaon6IYA1WsPKIzbrO9A21wBgks",
+      "Assessment Tools": "https://drive.google.com/drive/folders/16Dsvic5rji2STtkbKfipa3HBrok7TyQb"
+    },
+    "Mathematics": {
+      "Lesson Plans": "https://drive.google.com/drive/folders/1WfRgsCcmoo8Z57m3JBlfudmuttS-gnjz",
+      "Teaching Aids": "https://drive.google.com/drive/folders/1qsDjlEmRNqVa0tafL9YyzDU33eZhUJ7i",
+      "Assessment Tools": "https://drive.google.com/drive/folders/1J4QGGDF-mNio0xavdk4d2Mw7ABgxfkv7"
+    },
+    "Social Studies": {
+      "Lesson Plans": "https://drive.google.com/drive/folders/1mxIhJo-E0N8NwQnFVNGLhbc-nnuC3iqC",
+      "Teaching Aids": "https://drive.google.com/drive/folders/1GcmOCjJhs88e5m3NWaSJ5dsrGhkaiyKD",
+      "Assessment Tools": "https://drive.google.com/drive/folders/1W9JXbo5p_5UbdZ9TAcKihS_o9oJUW8bf"
+    }
+  }
+};
+
+let currentSubject = null;
+let currentFolderLinks = null;
+
+function createCard(system, subject, folders) {
+  const col = document.createElement('div');
+  col.className = 'col-md-4 mb-4';
+
+  const folderHTML = Object.entries(folders).map(([type, link]) => `
+    <div class="folder-group">
+      <div class="folder-title">${type}</div>
+      <div class="file-list">
+        <a href="${link}" class="file-item locked" onclick="event.preventDefault(); showPayment('${subject}')">
+          <i class="fas fa-lock me-2"></i> ${type} Folder (Locked)
+        </a>
+      </div>
+    </div>`).join('');
+
+  col.innerHTML = `
+    <div class="card package-card">
+      <div class="card-body">
+        <h5 class="card-title">${subject}</h5>
+        ${folderHTML}
+        <div class="text-center mt-3">
+          <button class="btn btn-primary" onclick="showPayment('${subject}')">
+            <i class="fas fa-shopping-cart me-2"></i>Purchase
+          </button>
+        </div>
+      </div>
+    </div>`;
+
+  return col;
+}
+
+function loadAll() {
+  const formDiv = document.getElementById('form12Packages');
+  const cbcDiv = document.getElementById('cbcPackages');
+  Object.entries(packageData.form12).forEach(([subject, data]) => formDiv.appendChild(createCard('form12', subject, data)));
+  Object.entries(packageData.cbc).forEach(([subject, data]) => cbcDiv.appendChild(createCard('cbc', subject, data)));
+}
+
+function showPayment(subject) {
+  currentSubject = subject;
+  const allPackages = { ...packageData.form12, ...packageData.cbc };
+  currentFolderLinks = allPackages[subject];
+  new bootstrap.Modal(document.getElementById('purchaseModal')).show();
+}
+
+document.getElementById('payButton').addEventListener('click', () => {
+  const email = document.getElementById('customerEmail').value;
+  if (!email) {
+    alert("Please enter your email to proceed.");
+    return;
+  }
+
+  PaystackPop.setup({
+    key: 'pk_live_63e382e09de41ba9543c3b60729aaa4c953a0933',
+    email: email,
+    amount: 69900, // KE
+    currency: 'KES',
+    label: currentSubject,
+    callback: function(response) {
+      const lessonLink = currentFolderLinks["Lesson Plans"];
+      alert(`Payment successful! Redirecting to Lesson Plans for ${currentSubject}.`);
+      window.location.href = lessonLink;
+    },
+    onClose: function() {
+      alert('Transaction cancelled');
+    }
+  }).openIframe();
+});
+
+document.addEventListener('DOMContentLoaded', loadAll);
+</script>
+ <!-- WhatsApp Float Button -->
+ <a href="https://wa.me/254794115740" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+
+</body>
+</html>

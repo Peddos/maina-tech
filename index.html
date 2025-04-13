@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MainaTech | Teacher Toolkit </title>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KK4TVR6R6Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KK4TVR6R6Z');
+  </script>
+  <!-- End Google Analytics -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="WhatsApp_Image_2025-03-25_at_20.35.11_a9bea190-removebg-preview.png" alt="TeachPro Logo">
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <nav id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="packages.html">Bundles</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav-links");
+      nav.classList.toggle('show');
+    }
+  </script>
+  
+  <section class="hero">
+    <img src="teacher-3765909_1280(1).jpg" alt="Teacher engaging with students">
+    <div class="overlay">
+      <h1>Boost Student Engagement by 30%</h1>
+      <p>Transform your classroom with ready-to-use practice projects.</p>
+      <div class="timer" id="countdown">Offer ends in: 00:00:00</div>
+      <script>
+        // Countdown Timer (Loss Aversion)
+        const end = new Date(new Date().getTime() + 12*60*60*1000);
+        const timer = document.getElementById('countdown');
+        setInterval(() => {
+          const now = new Date();
+          const diff = end - now;
+          if(diff <= 0) { timer.textContent = 'Offer expired'; return; }
+          const h = String(Math.floor(diff/3600000)).padStart(2,'0');
+          const m = String(Math.floor(diff%3600000/60000)).padStart(2,'0');
+          const s = String(Math.floor(diff%60000/1000)).padStart(2,'0');
+          timer.textContent = `Offer ends in: ${h}:${m}:${s}`;
+        }, 1000);
+      </script>
+    </div>
+  </section>
+  </nav>
+
+
+
+  <section class="benefits-section">
+    <div class="container">
+      <h2 class="text-center mb-5">Why Choose Our Projects?</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="fas fa-check-double"></i>
+            <h4>Supervisor Approved</h4>
+            <p>Projects that have been successfully evaluated and approved by TP supervisors. Choose what works for your school.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="fas fa-edit"></i>
+            <h4>Easy to Adapt</h4>
+            <p>Modify the projects to match your teaching practice school's requirements and your supervisor's expectations.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h4>Complete Documentation</h4>
+            <p>Each project includes all required documents: lesson plans, schemes, assessments, and teaching aids.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="testimonials">
+    <h2>What Teachers Are Saying</h2>
+    <div class="card">
+      <p>“I saved hours each week using TeachPro. My students are more engaged than ever!”</p>
+      <p><strong>– Sarah, Grade 5 Teacher</strong></p>
+    </div>
+    <div class="card">
+      <p>“A game-changer for my classroom. Highly recommend to every educator.”</p>
+      <p><strong>– Michael, High School English</strong></p>
+    </div>
+  </section>
+  <section id="pricing">
+    <h2>Choose Your Plan</h2>
+    <div class="pricing">
+      <div class="card">
+        <h3>Basic</h3>
+        <p class="price"><span class="original">KES 599</span> KES 399</p>
+        <ul>
+          <li>5 Practice Projects</li>
+          <li>Email Support</li>
+        </ul>
+        <a href="#" class="cta-button">Get Basic</a>
+      </div>
+      <div class="card popular">
+        <h3>Standard <span class="badge">Most Popular</span></h3>
+        <p class="price"><span class="original">KES 999</span> KES 699 </p>
+        <ul>
+          <li>15 Practice Projects</li>
+          <li>Priority Support</li>
+          <li>Community Access</li>
+        </ul>
+        <a href="#" class="cta-button">Get Standard</a>
+      </div>
+      <div class="card">
+        <h3>Premium</h3>
+        <p class="price"><span class="original">KES 1499</span> KES 1299</p>
+        <ul>
+          <li>All Projects</li>
+          <li>1-on-1 Coaching</li>
+          <li>Custom Module Builder</li>
+        </ul>
+        <a href="#" class="cta-button">Get Premium</a>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:1rem;">1,200 teachers purchased this bundle last week!</p>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="faq-item">
+            <p class="faq-question">How do I choose the right project?</p>
+            <p>Select a project that matches your teaching subject and school level. Each project can be customized to fit your specific school's requirements.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-question">Are these projects CBC compliant?</p>
+            <p>Yes! All projects follow current CBC requirements and have been successfully used by other student teachers.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="faq-item">
+            <p class="faq-question">Can I modify the projects?</p>
+            <p>Yes, you'll receive editable files so you can adapt the project to your school's specific needs and your supervisor's requirements.</p>
+          </div>
+          <div class="faq-item">
+            <p class="faq-question">What's included in each project?</p>
+            <p>Each project includes lesson plans, schemes of work, teaching aids, assessment tools, and all required TP documentation for that subject.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#projects">Our Tools</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="https://wa.me/254794115740">WhatsApp: +254 794 115 740</a></li>
+          <li>Email: mainatechservices254@gmail.com</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="https://www.facebook.com/profile.php?id=61575092611522" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/MainaTech254" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+    <p>&copy; 2025 MainaTech | Teacher Digital Tools</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/254794115740" class="whatsapp-float" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
