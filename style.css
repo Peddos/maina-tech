@@ -90,17 +90,21 @@
         color: white;
         text-decoration: none;
         transition: color 0.3s ease;
+      
       }
       
       nav a:hover {
         color: #00ccff;
+      }
+      #nav-links {
+        top: 10%;
       }
       
       /* Hamburger Icon */
       .hamburger {
         position: absolute;
         right: 20px; /* Distance from right edge */
-        top: 8%;
+        top: 6%;
         transform: translateY(-50%);
         font-size: 2rem;
         cursor: pointer;
@@ -511,4 +515,9 @@
       color: #333;
     }
 
-  
+    .btn-primary {
+      background-color: #e76f51 !important;
+      border-color: #e76f51 !important;
+      color: white !important;
+    }
+    
